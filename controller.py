@@ -5,19 +5,23 @@ import doctest
 import copy
 import functools
 import random 
+import logging as lg
+
 
 
 def create_grp():
     participant = ["Farid", "Marie" , "Phichet" , "Arthur" , "Antoine", "Hatice", "Giovanni", "Mickael", 
     "Rachid", "Julien", "Vivien", "Kevin", "Josephine", "Valentin", "Camille","Tanguy" ]
     nb_part = check_nb_part()
+
                 
     nb_grp = calcul(nb_part)
     x = range(int(nb_part))
     y = range(int(nb_grp))
     list_grp = []
-
+    
     for i in y:
+       # import pdb; pdb.set_trace()
         groupe = []
         for i in x:
             used = random.choice(participant)
@@ -73,6 +77,8 @@ def read_com():
 
 
 def comp(lvl,comp):
+    participant = ["Farid", "Marie" , "Phichet" , "Arthur" , "Antoine", "Hatice", "Giovanni", "Mickael", 
+    "Rachid", "Julien", "Vivien", "Kevin", "Josephine", "Valentin", "Camille","Tanguy" ]
     comp = ""
     lvl = ""
     comp = input("\033[32m La compétence :\033[0m").lower()
@@ -106,8 +112,8 @@ def check_nb_part():
         try:
             nb = int(input("\033[32mVeuillez entrer le nombre de personne dans un groupe entre 1 et 8 personnes: \033[0m")) 
  
-        except ValueError:
-            print("Vous n'avez pas saisi de nombre entre 1 et 8")
+        except ValueError as e:
+            lg.error("Vous n'avez pas saisi de nombre entre 1 et 8 {}".format(e))            # print("Vous n'avez pas saisi de nombre entre 1 et 8")
 
     nb_part = nb
             
