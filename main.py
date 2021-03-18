@@ -10,7 +10,7 @@ if __name__=='__main__':
     print('\033[32mBienvenue dans votre application.\033[0m')
     print("\033[32m\n----------------------------------------\n\033[0m")
 
-    """boucle qui indique à l'utilisateur ce qu'il souhaite faire et lance les méthodes en fonction des réponses"""
+    """loop who answer what do you want and answer we need"""
     choix=""  
     while choix != "q":
         choix = input("\033[33m\n(s) Pour créer des groupes.\n(q) Pour quitter.\nVotre choix :\033[0m").lower()

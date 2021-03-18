@@ -10,6 +10,7 @@ import logging as lg
 
 
 def create_grp():
+    """method who random participants and delette in the list"""
     participant = ["Farid", "Marie" , "Phichet" , "Arthur" , "Antoine", "Hatice", "Giovanni", "Mickael", 
     "Rachid", "Julien", "Vivien", "Kevin", "Josephine", "Valentin", "Camille","Tanguy" ]
     nb_part = check_nb_part()
@@ -56,8 +57,7 @@ nom_fichier = 'information_u.json'
 
 
 def calcul(nb_part):
-
-
+    """methode splite by 16 number of participants """
     nb_grp = 16 // int(nb_part)
     
     return nb_grp
@@ -65,11 +65,13 @@ def calcul(nb_part):
 
 
 def sav_com(item, lvl, comp):
+    """add in JSON for saving skills"""
     with open(nom_fichier, 'w') as fichier:
         json.dump(str({'nom': item, 'Niveau': lvl,'compétence': comp}), fichier)
 
 
 def read_com():
+    """methode pour lire le fichier json"""
     with open(nom_fichier, 'r') as fichier:
         information_user = json.load(fichier)
         return information_user
@@ -77,6 +79,7 @@ def read_com():
 
 
 def comp(lvl,comp):
+    """Save the skills"""  
     participant = ["Farid", "Marie" , "Phichet" , "Arthur" , "Antoine", "Hatice", "Giovanni", "Mickael", 
     "Rachid", "Julien", "Vivien", "Kevin", "Josephine", "Valentin", "Camille","Tanguy" ]
     comp = ""
@@ -93,6 +96,7 @@ def comp(lvl,comp):
 @autotest
 
 def calcul(nb_part):
+    """Method was testing the code """
     
     """NB only INT
     
@@ -105,6 +109,7 @@ def calcul(nb_part):
 
 
 def check_nb_part():
+    """Method close the answer only in interger and 1 and 8 max participant"""
 
     nb = "0"
     while int(nb) > 8 or int(nb) == 0:
@@ -113,7 +118,7 @@ def check_nb_part():
             nb = int(input("\033[32mVeuillez entrer le nombre de personne dans un groupe entre 1 et 8 personnes: \033[0m")) 
  
         except ValueError as e:
-            lg.error("Vous n'avez pas saisi de nombre entre 1 et 8 {}".format(e))            # print("Vous n'avez pas saisi de nombre entre 1 et 8")
+            lg.error("Vous n'avez pas saisi de nombre entre 1 et 8 {}".format(e))            
 
     nb_part = nb
             
